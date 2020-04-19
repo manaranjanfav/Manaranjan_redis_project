@@ -7,14 +7,13 @@ Redis is often referred as a *data structures* server. What this means is that R
 
 Data structures are stored on the computer disk. So the Redis is Non-volatile.
 
-Inside the src directory two c++ programm is present. One is server.cpp and another is client.cpp. Also a "database.txt" and a "setbase.txt" file is present which stores all the data and set respectively inserted by client or server.
+Inside the Manaranjan_redis_project directory two c++ programm is present. One is server.cpp and another is client.cpp. Also a "database.txt" and a "setbase.txt" file is present which stores all the data and set respectively inserted by client or server.
 
 Running Redis
 --------------
 To run redis just type:
 
     ```
-     % cd src
      
      % ./server PORT(you have to pass the port number as arguments).
      
@@ -26,7 +25,7 @@ Playing with Redis
 You can use client to play with Redis. Start a server instance,
 then in another terminal try the following:
 ```
-% cd src
+
 % ./client PORT(you have to pass the port number as arguments).
 
 ```

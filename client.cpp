@@ -14,6 +14,13 @@ using namespace std;
 int main(int argc, char const *argv[]) 
 { 
 
+	if(1>=argc)
+    {
+    	  cout<<"Erro!!!\n";
+    	  cout<<"Please provide the PORT number\n";
+    	  return 0;
+    }
+
 	int PORT;
 
     string port=argv[1];

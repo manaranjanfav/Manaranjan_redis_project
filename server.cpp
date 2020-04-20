@@ -218,9 +218,19 @@ vector<string> execute_command(vector<string> CM)
      
      string command=change_to_small_case(CM[0]);
      //cout<<command<<"command\n";
+
+     int n=CM.size();
+
      if(command=="get")
      {
      	  //cout<<CM[1]<<"check get commad\n";
+
+     	  if(n!=2)
+     	  {
+     	  	 string fans="Please give the input correctly (get key)";
+             ans.push_back(fans);
+             return ans;
+     	  }
      	  string val=GET(CM[1]);
      	  //cout<<"val"<<val<<"\n";
      	  ans.push_back(val);
@@ -229,29 +239,63 @@ vector<string> execute_command(vector<string> CM)
       if(command=="set")
       {
       	  //cout<<CM[1]<<" "<<CM[2]<<"\n";
+      	 if(n!=3)
+     	  {
+     	  	 string fans="Please give the input correctly (set key value)";
+             ans.push_back(fans);
+             return ans;
+     	  }
       	  SET(CM[1],CM[2]);
 
       }
       else
       	if(command=="expire")
       	{
+
+      	 if(n!=3)
+     	  {
+     	  	 string fans="Please give the input correctly (expire key Time)";
+             ans.push_back(fans);
+             return ans;
+     	  }
+
       		  string val=EXPIRE(CM[1],CM[2]);
       		  ans.push_back(val);
       	}
       else
       	if(command=="zadd")
       	{
+      	 if(n!=4)
+     	  {
+     	  	 string fans="Please give the input correctly (zadd setname score key)";
+             ans.push_back(fans);
+             return ans;
+     	  }
       		  ZADD(CM[1],CM[2],CM[3]);
       	}
       	else
       	  if(command=="zrank")
       	  {
+
+      	  if(n!=3)
+     	  {
+     	  	 string fans="Please give the input correctly (zrank setname key)";
+             ans.push_back(fans);
+             return ans;
+     	  }
       	  	  string rank=ZRANK(CM[1],CM[2]);
       	  	  ans.push_back(rank);
       	  }
       	  else
       	  	if(command=="zrange")
       	  	{
+                 if(n!=5)
+     	         {
+     	  	      string fans="Please give the input correctly (zrange setname start stop (With(1) or without_score(0))";
+                  ans.push_back(fans);
+                  return ans;
+     	         }
+
                 ans=ZRANGE(CM[1],CM[2],CM[3],CM[4]);
       	  	}
 
@@ -452,7 +496,13 @@ vector<string> parse_commands(string s)
 }
 int main(int argc , char *argv[]) 
 { 
-
+    
+    if(1>=argc)
+    {
+    	  cout<<"Erro!!!\n";
+    	  cout<<"Please provide the PORT number\n";
+    	  return 0;
+    }
     
 	server_opening();
     int PORT;
